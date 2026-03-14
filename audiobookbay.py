@@ -1,4 +1,4 @@
-# VERSION: 0.4
+# VERSION: 0.5
 # AUTHORS: nKlido
 
 # LICENSING INFORMATION
@@ -27,9 +27,9 @@ import urllib.parse
 
 
 class audiobookbay(object):
-    url = 'http://audiobookbay.lu/'
+    url = 'https://audiobookbay.lu/'
     urls = [
-        'http://audiobookbay.lu/'
+        'https://audiobookbay.lu/'
     ]
 
     name = 'AudioBook Bay (ABB)'
@@ -150,15 +150,17 @@ class audiobookbay(object):
             link = "magnet:" \
                    + "?xt=urn:btih:" + parser.hash \
                    + "&dn=" + urllib.parse.quote(title) \
-                   + "&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969" \
-                   + "&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969" \
-                   + "&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce" \
-                   + "&tr=udp%3A%2F%2Ftracker.open-internet.nl%3A6969%2Fannounce" \
-                   + "&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A69691337%2Fannounce" \
-                   + "&tr=udp%3A%2F%2Ftracker.vanitycore.co%3A6969%2Fannounce" \
-                   + "&tr=http%3A%2F%2Ftracker.baravik.org%3A6970%2Fannounce" \
-                   + "&tr=http%3A%2F%2Fretracker.telecom.by%3A80%2Fannounce" \
-                   + "&tr=http%3A%2F%2Ftracker.vanitycore.co%3A6969%2Fannounce"
+                   + "&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce" \
+                   + "&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce" \
+                   + "&tr=http%3A%2F%2Ftracker.files.fm%3A6969%2Fannounce" \
+                   + "&tr=http%3A%2F%2Fopen.acgnxtracker.com%3A80%2Fannounce" \
+                   + "&tr=http%3A%2F%2Ftracker2.dler.org%3A80%2Fannounce" \
+                   + "&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce" \
+                   + "&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce" \
+                   + "&tr=udp%3A%2F%2Fopentor.org%3A2710%2Fannounce" \
+                   + "&tr=udp%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce" \
+                   + "&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce" \
+                   + "&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce"
 
             parser.close()
 
@@ -174,7 +176,7 @@ class audiobookbay(object):
         return None
 
     def request(self, url, searchTerm, category, page=1):
-        request_url = url + '/page/' + str(page) + '/?s=' + searchTerm + '&cat=' + category
+        request_url = url + '?s=' + searchTerm + '&cat=' + category
         return retrieve_url(request_url)
 
     def search(self, what, cat='all'):
